@@ -1,4 +1,4 @@
-name: run-python-script
+name: Setup Python
 run-name: Run Python Script
 on: [push]
 jobs:
