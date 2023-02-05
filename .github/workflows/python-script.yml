@@ -1,0 +1,24 @@
+name: Setup Python
+run-name: Run Python Script
+on: [push]
+jobs:
+  hello:
+    name: Hello 👋
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: python ./python/hello.py
+  artist-of-the-day:
+    name: Artist of the day 💿
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "pip"
+      - run: pip install -r ./python/api/requirements.txt
+      - run: python ./python/api/vagalume_api.py
