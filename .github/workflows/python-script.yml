@@ -11,5 +11,5 @@ jobs:
           python-version: "3.10"
       - name: Hello
       - run: python ./python/hello.py
-      - name: Artist of the day
-      - run: python ./python/vagalume_api.py
+      # - name: Artist of the day
+      # - run: python ./python/vagalume_api.py
