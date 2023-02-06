@@ -2,7 +2,7 @@ name: Setup Python
 run-name: Run Python Script
 
 on:
-  worflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   hello:
