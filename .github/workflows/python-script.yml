@@ -1,6 +1,9 @@
 name: Setup Python
 run-name: Run Python Script
-on: [push]
+
+on:
+  worflow_dispatch:
+
 jobs:
   hello:
     name: Hello 👋
