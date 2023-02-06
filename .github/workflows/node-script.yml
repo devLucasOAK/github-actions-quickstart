@@ -1,6 +1,9 @@
 name: Setup Node
 run-name: Run Node Script
-on: [push]
+
+on:
+  worflow_dispatch:
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
