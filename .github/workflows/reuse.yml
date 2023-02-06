@@ -1,0 +1,16 @@
+# This is a basic workflow to showcase the use of Reusable Workflows
+
+name: Call Reusable Docker Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docker:
+    uses: n3wt0n/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
+    with:
+      image_name: my-awesome-app
+      tag: $GITHUB_RUN_NUMBER
+    secrets:
+      registry_username: ${{secrets.REGISTRY_USERNAME}}
+      registry_password: ${{secrets.REGISTRY_PASSWORD}}
