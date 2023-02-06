@@ -2,7 +2,7 @@ name: Setup Node
 run-name: Run Node Script
 
 on:
-  worflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   check-bats-version:
