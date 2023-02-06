@@ -12,13 +12,17 @@ def get_related_artists(artist):
 
     random_artist = random.choice(response["art"]["related"])
 
-    return random_artist["name"]
+    return random_artist
 
 
-artist = "Michael Jackson"
+artist = {
+    "name": "Michael Jackson"
+}
 
 for i in range(3):
-    artist = get_related_artists(artist)
+    artist = get_related_artists(artist["name"])
 
-print(f"Artist of the day: {get_related_artists(artist)} 💿")
-print("Powered by https://api.vagalume.com.br/")
+print(f"Artist of the day: {artist['name']} 💿")
+print(f"More info: {artist['url']}")
+
+print("\n Powered by https://api.vagalume.com.br/")
