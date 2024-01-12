@@ -7,5 +7,5 @@ module.exports = async ({ github, context, core }) => {
   const reposName = repos.data.map((repo) => repo.full_name);
 
   // set output
-  core.exportVariable("REPOS", reposName.join(","));
+  core.exportVariable("REPOS", reposName);
 };

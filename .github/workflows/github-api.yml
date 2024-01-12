@@ -18,4 +18,4 @@ jobs:
 
       - name: Echo Output
         run: |
-          echo "Output: ${{ steps.github-script.outputs.REPOS }}"
+          echo "REPOS: $REPOS"
