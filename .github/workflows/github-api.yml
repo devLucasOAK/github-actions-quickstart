@@ -44,7 +44,7 @@ jobs:
             git checkout -b add-workflow-files
             git add .
             git commit -m "Add Workflow files"
-            git push https://${GITHUB_TOKEN}@github.com/$REPO.git --set-upstream origin add-workflow-files
+            git push https://${{ env.GITHUB_TOKEN }}@github.com/$REPO.git --set-upstream origin add-workflow-files
             gh pr create --title "Add Workflow files" --body "PR Auto Created" --base main --head add-workflow-files
             cd ..
 
