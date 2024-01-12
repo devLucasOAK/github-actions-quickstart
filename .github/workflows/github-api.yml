@@ -14,5 +14,5 @@ jobs:
           SHA: '${{env.parentSHA}}'
         with:
           script: |
-            const script = require('./path/to/script.js')
+            const script = require('./scripts/github-script.js')
             await script({github, context, core})
