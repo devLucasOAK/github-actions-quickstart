@@ -20,6 +20,10 @@ jobs:
         run: |
           echo "REPOS: $REPOS"
 
-          for repo in $REPOS; do
-            echo "REPO: $repo"
+          # parse the output
+          REPOS=$(echo $REPOS | jq -r '.[] | .name')
+
+          # loop through the repos
+          for REPO in $REPOS; do
+            echo "REPO: $REPO"
           done
