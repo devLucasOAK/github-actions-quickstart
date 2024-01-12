@@ -21,7 +21,7 @@ jobs:
           echo "REPOS: $REPOS"
 
           # parse the output
-          REPOS=$(echo $REPOS | jq -r '.[] | .name')
+          REPOS=$(echo $REPOS | jq -r '.[]')
 
           # loop through the repos
           for REPO in $REPOS; do
