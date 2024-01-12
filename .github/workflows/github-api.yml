@@ -28,7 +28,7 @@ jobs:
             echo "REPO: $REPO"
 
             # clone the repo
-            gh repo clone $REPO
+            git clone $REPO
 
             # copy the files
             cp -r ./scripts ./$(basename $REPO)
