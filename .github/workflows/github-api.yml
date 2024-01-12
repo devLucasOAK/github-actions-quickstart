@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  echo-input:
+  add-files-for-repos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,4 +26,25 @@ jobs:
           # loop through the repos
           for REPO in $REPOS; do
             echo "REPO: $REPO"
+
+            # clone the repo
+            gh repo clone $REPO
+
+            # copy the files
+            cp -r ./scripts ./$(basename $REPO)
+
+            # commit the files in a new branch the create PR
+            cd ./$(basename $REPO)
+            git checkout -b add-files
+            git add .
+            git commit -m "Add files"
+            git push --set-upstream origin add-files
+            gh pr create --title "Add files" --body "Add files" --base main --head add-files
+            cd ..
+
+            # remove the repo
+            rm -rf ./$(basename $REPO)
+
+            # break first
+            break
           done
