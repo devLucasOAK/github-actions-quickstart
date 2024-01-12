@@ -1,9 +1,11 @@
 module.exports = async ({ github, context, core }) => {
-  const { SHA } = process.env;
-  const commit = await github.rest.repos.getCommit({
-    owner: context.repo.owner,
-    repo: context.repo.repo,
-    ref: `${SHA}`,
+  const repos = await github.rest.repos.listForUser({
+    username: context.repo.owner,
   });
-  core.exportVariable("author", commit.data.commit.author.email);
+
+  // filter only full_name
+  const reposName = repos.data.map((repo) => repo.full_name);
+
+  // set output
+  core.exportVariable("REPOS", reposName.join(","));
 };
