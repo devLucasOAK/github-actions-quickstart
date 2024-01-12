@@ -27,6 +27,10 @@ jobs:
           for REPO in $REPOS; do
             echo "REPO: $REPO"
 
+            # git config
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+
             # clone the repo
             git clone https://github.com/$REPO.git
 
