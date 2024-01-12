@@ -19,3 +19,7 @@ jobs:
       - name: Echo Output
         run: |
           echo "REPOS: $REPOS"
+
+          for repo in $REPOS; do
+            echo "REPO: $repo"
+          done
