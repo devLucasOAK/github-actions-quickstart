@@ -33,6 +33,7 @@ jobs:
           # git config
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+          git config --unset-all http.https://github.com/.extraheader
 
           # loop through the repos
           for REPO in $REPOS; do
@@ -44,7 +45,7 @@ jobs:
             # copy the files
             cp -r ./scripts ./$(basename $REPO)
 
-            # commit the files in a new branch the create PR
+            # commit the files in a new branch then create PR
             cd ./$(basename $REPO)
             git checkout -b add-workflow-files
             git add .
