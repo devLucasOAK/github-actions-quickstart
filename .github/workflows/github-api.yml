@@ -39,8 +39,8 @@ jobs:
           for REPO in $REPOS; do
             echo "REPO: $REPO"
 
-            # clone the repo
-            git clone https://github.com/$REPO.git
+            # clone the repo with ssh
+            git clone https://${{ env.GITHUB_TOKEN }}@github.com/$REPO.git
 
             # copy the files
             cp -r ./scripts ./$(basename $REPO)
